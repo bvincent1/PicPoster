@@ -7,6 +7,7 @@ import java.util.List;
 
 import android.graphics.Bitmap;
 import android.widget.ArrayAdapter;
+import ca.ualberta.cs.picposter.ElasticSearchOperations;
 
 /**
  * Represents a list of all Pic Posts.
@@ -29,6 +30,8 @@ public class PicPosterModelList {
 		PicPostModel picPost = new PicPostModel(text, timestamp);
 		this.list.add(picPost);
 		this.adapter.notifyDataSetChanged();
+		
+		ElasticSearchOperations.pushPicPostModel(picPost);
 	}
 	
 	
